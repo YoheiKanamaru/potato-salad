@@ -1,9 +1,9 @@
 
 const Search = () =>{
     return(
-        <div>
+        <h2>
             Search
-        </div>
+        </h2>
     )
 }
 

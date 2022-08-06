@@ -17,7 +17,7 @@ const Home = () =>{
             <header>
             <Header />
             </header>
-
+            
              <Routes>
                 <Route path="/" element={<Search />} />
                 <Route path="/about" element={<About />} />
@@ -26,7 +26,6 @@ const Home = () =>{
                 <Route path="/profile" element={<Profile />} />
              </Routes>
              </BrowserRouter>
-            
         </div>    
     )
 }
