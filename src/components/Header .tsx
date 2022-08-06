@@ -13,12 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-import { BrowserRouter, Link, Route, Routes, Navigate } from "react-router-dom"
-import SignIn from './SignIn';
-import Profile from './Profile';
+import { Link } from "react-router-dom"
 
-const pages = ['About', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Logout'];
+import './HeaderCSS.css'
 
 
 const ResponsiveAppBar = () => {
@@ -92,11 +89,10 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseUserMenu}><Link to={'/'}>Home</Link></MenuItem>
+              <MenuItem onClick={handleCloseUserMenu}><Link to={'/about'}>About</Link></MenuItem>
+              <MenuItem onClick={handleCloseUserMenu}><Link to={'/contact'}>Contact</Link></MenuItem>
+
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -104,7 +100,7 @@ const ResponsiveAppBar = () => {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -116,18 +112,12 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            CheCA
+            ChaCA
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+              <MenuItem onClick={handleCloseUserMenu}><Link to={'/'}><a style={{color: "white"}}>Home</a></Link></MenuItem>
+              <MenuItem onClick={handleCloseUserMenu}><Link to={'/about'}><a style={{color: "white"}}>About</a></Link></MenuItem>
+              <MenuItem onClick={handleCloseUserMenu}><Link to={'/contact'}><a style={{color: "white"}}>Contact</a></Link></MenuItem>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -151,14 +141,11 @@ const ResponsiveAppBar = () => {
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
-
-              
             >
-            <BrowserRouter>
-            <MenuItem onClick={handleCloseUserMenu}><Link to='/profile'>Profile</Link></MenuItem>
-            <MenuItem onClick={handleCloseUserMenu}>SignIn</MenuItem>
-            <MenuItem onClick={handleCloseUserMenu}>SignOut</MenuItem>
-            </BrowserRouter>
+
+            <MenuItem onClick={handleCloseUserMenu}><Link to={'/profile'}>Profile</Link></MenuItem>
+            <MenuItem onClick={handleCloseUserMenu}><Link to={'/signin'}>SignIn</Link></MenuItem>
+
             </Menu>
           </Box>
         </Toolbar>

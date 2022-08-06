@@ -3,39 +3,31 @@
 import { BrowserRouter, Link, Route, Routes, Navigate } from "react-router-dom"
 import SignIn from './SignIn';
 import Header from './Header ';
+import Profile from "./Profile";
+import Search from "./Search";
+import About from "./About";
+import ContactForm from "./Contact";
 
+//BrowserRouterの中でRouteを設置、Reactアプリの中で一度しか使えないのでここでページ遷移を管理
+//v6なので参考サイトとやり方が異なってくるので、詰まったらv6の資料読んだ方が良い
 const Home = () =>{
     return(
-        <div>
-            <Header />
+        <div> 
             <BrowserRouter>
-
-            <ul>
-                <li>
-                <Link to="/signin">Login</Link>
-                </li>
-                <li>
-                <Link to="/about">About</Link>
-                </li>
-                <li>
-                <Link to="/post">投稿</Link>
-                </li>
-             </ul>
+            <header>
+            <Header />
+            </header>
 
              <Routes>
-                <Route path="/signin" element={<SignIn />} />
+                <Route path="/" element={<Search />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<ContactForm />} />
+                <Route path="/signin" element={<SignIn />} />
+                <Route path="/profile" element={<Profile />} />
              </Routes>
-
              </BrowserRouter>
             
         </div>    
-    )
-}
-
-const About = () =>{
-    return(
-        <h2>About</h2>
     )
 }
 
