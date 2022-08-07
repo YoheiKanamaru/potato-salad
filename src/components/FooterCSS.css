@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+.container {
+    padding-bottom: 60px;
+    box-sizing: border-box;
+}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Caveat';
+    text-align: center; 
+    background-color: inherit;
+
+}

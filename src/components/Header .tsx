@@ -17,7 +17,6 @@ import { Link } from "react-router-dom"
 
 import './HeaderCSS.css'
 
-
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
