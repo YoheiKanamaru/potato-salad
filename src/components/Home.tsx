@@ -9,6 +9,7 @@ import About from "./About";
 import ContactForm from "./Contact";
 import Footer from "./Footer";
 import SignUp from "./SignUp";
+import HomeTop from "./HomeTop";
 
 //BrowserRouterの中でRouteを設置、Reactアプリの中で一度しか使えないのでここでページ遷移を管理
 //v6なので参考サイトとやり方が異なってくるので、詰まったらv6の資料読んだ方が良い
@@ -22,7 +23,8 @@ const Home = () =>{
             </header>
 
              <Routes>
-                <Route path="/" element={<Search />} />
+                <Route path="/" element={<HomeTop />} />
+                <Route path="/search" element={<Search />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<ContactForm />} />
                 <Route path="/signin" element={<SignIn />} />

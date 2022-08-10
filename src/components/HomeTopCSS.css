@@ -1,0 +1,78 @@
+.background{
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(./img/pexels-vishnu-r-nair-1105666.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.hero{
+    height: 700px;
+    font-family: 'Caveat';
+}
+
+.hero-title{
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+
+    top: 40%; /*親要素を起点に上から50%*/
+    left: auto;
+
+}
+
+.hero-about1{
+    color: white;
+    text-align: center;
+    position: absolute;
+
+    top: 60%; /*親要素を起点に上から50%*/
+}
+
+.hero-about2{
+    color: white;
+    text-align: center;
+    position: absolute;
+
+    top: 62%; /*親要素を起点に上から50%*/
+    
+}
+
+
+.button-wrapper {
+    display: flex;
+    flex-flow: column;
+    
+    justify-content:space-between;
+
+    align-items: center;
+    gap: 18px 12px;
+    
+
+    position: absolute;
+    height: 50px;
+    width: 70%;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+ }
+  
+.button1{
+    font-size: large;
+    width: 50%;
+
+    text-decoration: none;
+}
+
+.button2{
+    color: white;
+    font-size: large;
+    width: 50%;
+
+    text-decoration: none;
+}
+
