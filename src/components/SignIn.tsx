@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,6 +13,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+import { app } from '../firebase/firebase';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 function Copyright(props: any) {
   return (
@@ -29,6 +33,12 @@ function Copyright(props: any) {
 const theme = createTheme();
 
 export default function SignIn() {
+
+  const auth = getAuth(app);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("")
+
+  //ログインボタンを押した時の処理、firebaseのユーザーリストと整合性確認しユーザーならログイン処理
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -36,7 +46,15 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    signInWithEmailAndPassword(auth, email, password);
   };
+
+  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.currentTarget.value)
+  }
+  const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.currentTarget.value)
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -66,6 +84,7 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={handleChangeEmail}
             />
             <TextField
               margin="normal"
@@ -76,6 +95,7 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleChangePassword}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

@@ -8,14 +8,15 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/HeadsetMic';
 
 import { Link } from "react-router-dom"
+import { app } from '../firebase/firebase';
+import { getAuth } from "firebase/auth";
 
-import './HeaderCSS.css'
+import './css/HeaderCSS.css'
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -36,7 +37,16 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
+  const auth = getAuth(app);
+
+  //ログアウト用の関数を準備
+  const handleLogout = () => {
+    handleCloseUserMenu();
+    auth.signOut();
+  };
+
   return (
+
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -144,6 +154,7 @@ const ResponsiveAppBar = () => {
 
             <MenuItem onClick={handleCloseUserMenu}><Link to={'/profile'}>Profile</Link></MenuItem>
             <MenuItem onClick={handleCloseUserMenu}><Link to={'/signin'}>SignIn</Link></MenuItem>
+            <MenuItem onClick={handleLogout}><Link to={'/'}>ログアウト</Link></MenuItem>
 
             </Menu>
           </Box>

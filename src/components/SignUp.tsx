@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { app } from "./firebase/firebase";
+import { app } from "../firebase/firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -47,13 +47,7 @@ const SignUp = () => {
 
     createUserWithEmailAndPassword(auth, email, password)
 
-    console.log({
-      auth: data.get('auth'),
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-
-    Navigate('/')
+    Navigate('signupok')
   };
 
   const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {

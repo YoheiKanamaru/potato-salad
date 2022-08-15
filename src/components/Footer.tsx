@@ -1,5 +1,5 @@
 import AdbIcon from '@mui/icons-material/HeadsetMic';
-import './FooterCSS.css'
+import './css/FooterCSS.css'
 
 const Footer = () =>{
     return(
